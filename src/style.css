@@ -1,0 +1,16 @@
+
+.CodeEditor{
+    width: 70%;
+    float: left;
+
+}
+.InputEditor{
+    padding-left: 5px;
+}
+.OutputEditor{
+    padding-left: 5px;
+}
+.float{
+    float: left;
+    width: 30%;
+}
