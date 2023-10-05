@@ -1,11 +1,11 @@
 import Editor from '@monaco-editor/react';
-import NoteContext from "../context/NoteContext";
 import { useContext } from 'react';
+import NoteContext from "../context/NoteContext";
 function CodeEditor() {
-  const { code, setCode} = useContext( NoteContext );
+  const {output}=useContext(NoteContext);
   return (
     <div className='OutputEditor'>
-      <Editor height="50vh" theme="vs-dark" defaultLanguage="plaintext" defaultValue="// some comment" value={code}/>;
+      <Editor height="50vh" theme="vs-dark" defaultLanguage="plaintext" defaultValue="// some comment" value={output}/>;
     </div>
   )
 }
