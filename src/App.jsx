@@ -9,7 +9,6 @@ import { useContext } from "react";
 import NoteContext from "./context/NoteContext";
 function App() {
   const { submit } = useContext( NoteContext );
-
   return (
     <div>
         {submit === true ? <Runner /> : null}

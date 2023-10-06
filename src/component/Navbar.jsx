@@ -6,11 +6,17 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import NoteContext from "../context/NoteContext";
 import { useContext } from "react";
+import "../style.css"
 function NavScrollExample() {
-  const {setSubmit}=useContext(NoteContext)
-  const handleSubmit=()=>{
-    setSubmit(true)
-  }
+  const { setSubmit, language, setSelectedLanguage } = useContext(NoteContext);
+
+  const handleSubmit = () => {
+    setSubmit(true);
+  };
+  const handleLanguageSelect = (selectedLanguage) => {
+    console.log(selectedLanguage);
+    setSelectedLanguage(selectedLanguage);
+  };
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -25,21 +31,23 @@ function NavScrollExample() {
             <Nav.Link href="#action1">Home</Nav.Link>
             <Nav.Link href="#action2">Link</Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
+              {language.map((lang) => (
+                <NavDropdown.Item
+                  key={lang.id}
+                  onClick={() => handleLanguageSelect(lang.id)}
+                >
+                  {lang.name} ({lang.id})
+                </NavDropdown.Item>
+              ))}
             </NavDropdown>
             <Nav.Link href="#" disabled>
               Link
             </Nav.Link>
           </Nav>
           <div style={{ textAlign: "center", paddingRight: "40%" }}>
-          <Button variant="outline-success" onClick={handleSubmit}>Compile</Button>
+            <Button variant="outline-success" onClick={handleSubmit}>
+              Compile
+            </Button>
           </div>
           <Form className="d-flex">
             <Button variant="outline-danger">Log out</Button>

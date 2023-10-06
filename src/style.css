@@ -14,3 +14,7 @@
     float: left;
     width: 30%;
 }
+ .dropdown-menu {
+    height: 50vh;
+    overflow-y: scroll;
+  }
