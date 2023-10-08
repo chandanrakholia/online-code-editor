@@ -2,8 +2,7 @@ import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import NoteContext from "../context/NoteContext";
 function Runner() {
-  // const key = "18e6057060msh1f53f0ce9b7abe4p107ac9jsnb3b02097c0f4"; //personal
-  // const key="0418749d94msh3a716c84f043ce5p1a34edjsn9ac3edc40b93" //iit jammu
+  const API_KEY = import.meta.env.VITE_API_KEY;
   const { setOutput, setSubmit ,selectedLanguage, code, input } =
     useContext(NoteContext);
   const [outputDetails, setOutputDetails] = useState("");
@@ -18,11 +17,11 @@ function Runner() {
       headers: {
         "content-type": "application/json",
         "Content-Type": "application/json",
-        "X-RapidAPI-Key": "18e6057060msh1f53f0ce9b7abe4p107ac9jsnb3b02097c0f4",
+        "X-RapidAPI-Key": API_KEY,
         "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
       },
       data: {
-        language_id: selectedLanguage,
+        language_id: selectedLanguage.languageId,
         source_code:
           btoa(code),
         stdin: btoa(input),
@@ -32,14 +31,17 @@ function Runner() {
     axios
       .request(options)
       .then(function (response) {
+        // console.log(options)
         console.log("api called1")
         console.log(response)
         const token = response.data.token;
         setTimeout(() => {
           checkStatus(token);
-        }, 3000);
+        }, 2000);
       })
       .catch((err) => {
+        console.log(options)
+
         let error = err.response ? err.response.data : err;
 
         let status = err.response.status;
@@ -60,7 +62,7 @@ function Runner() {
         fields: "*",
       },
       headers: {
-        "X-RapidAPI-Key": "18e6057060msh1f53f0ce9b7abe4p107ac9jsnb3b02097c0f4",
+        "X-RapidAPI-Key": API_KEY,
         "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
       },
     };

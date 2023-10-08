@@ -3,24 +3,29 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import Dropdown from 'react-bootstrap/Dropdown';
+
 import NoteContext from "../context/NoteContext";
 import { useContext } from "react";
 import "../style.css"
 function NavScrollExample() {
-  const { setSubmit, language, setSelectedLanguage } = useContext(NoteContext);
+  const { setSubmit, language,selectedLanguage, setSelectedLanguage } = useContext(NoteContext);
 
   const handleSubmit = () => {
     setSubmit(true);
   };
   const handleLanguageSelect = (selectedLanguage) => {
     console.log(selectedLanguage);
-    setSelectedLanguage(selectedLanguage);
+    setSelectedLanguage({
+      languageId: selectedLanguage.id,
+      languageName: selectedLanguage.name,
+      languageEditor: selectedLanguage.editorLanguage
+    });
   };
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Navbar.Brand href="#">CR EDITOR</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -29,20 +34,26 @@ function NavScrollExample() {
             navbarScroll
           >
             <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              {language.map((lang) => (
-                <NavDropdown.Item
+            {/* <Nav.Link href="#action2">Link</Nav.Link> */}
+            <Dropdown>
+      <Dropdown.Toggle variant="primary" id="dropdown-basic">
+      {selectedLanguage.languageName}
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+      {language.map((lang) => (
+                <Dropdown.Item
                   key={lang.id}
-                  onClick={() => handleLanguageSelect(lang.id)}
+                  onClick={() => handleLanguageSelect(lang)}
                 >
-                  {lang.name} ({lang.id})
-                </NavDropdown.Item>
+                  {lang.name}
+                  </Dropdown.Item>
               ))}
-            </NavDropdown>
-            <Nav.Link href="#" disabled>
+      </Dropdown.Menu>
+    </Dropdown>
+            {/* <Nav.Link href="#" disabled>
               Link
-            </Nav.Link>
+            </Nav.Link> */}
           </Nav>
           <div style={{ textAlign: "center", paddingRight: "40%" }}>
             <Button variant="outline-success" onClick={handleSubmit}>

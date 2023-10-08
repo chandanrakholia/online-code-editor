@@ -9,7 +9,7 @@ function CodeEditor() {
       <Editor
         height="90vh"
         theme="vs-dark"
-        defaultLanguage={selectedLanguage}
+        defaultLanguage={selectedLanguage.languageEditor}
         // defaultValue="some comments"
         value={code}
         onChange={(e) => setCode(e)}

@@ -11,8 +11,11 @@ function CodeEditor() {
 
   return (
     <div className="OutputEditor">
+      <div style={{ textAlign: "center" }}>
+        <h3>Output</h3>
+      </div>
       <Editor
-        height="50vh"
+        height="45vh"
         theme="vs-dark"
         defaultLanguage="plaintext"
         value={output}
