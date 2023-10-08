@@ -4,6 +4,9 @@ import NoteContext from "../context/NoteContext";
 
 function CodeEditor() {
   const {input,setInput}=useContext(NoteContext)
+  const handleInput=(e)=>{
+    setInput(e)
+  }
   return (
     <div className="InputEditor">
       <Editor
@@ -11,7 +14,7 @@ function CodeEditor() {
         theme="vs-dark"
         defaultLanguage="plaintext"
         value={input}
-        onChange={(e)=>{setInput(e)}}
+        onChange={handleInput}
       />
       ;
     </div>

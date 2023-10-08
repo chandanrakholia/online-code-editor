@@ -3,7 +3,7 @@ import NoteContext from "./NoteContext"
 import PropTypes from 'prop-types';
 const NoteState=({children})=>{
     const[code,setCode]=useState("");
-    const[selectedLanguage,setSelectedLanguage]=useState(71);
+    const[selectedLanguage,setSelectedLanguage]=useState(54);
     const[submit,setSubmit]=useState(false);
     const[output,setOutput]=useState("")
     const[input,setInput]=useState("")

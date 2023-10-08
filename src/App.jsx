@@ -8,17 +8,17 @@ import Runner from "./component/Runner";
 import { useContext } from "react";
 import NoteContext from "./context/NoteContext";
 function App() {
-  const { submit } = useContext( NoteContext );
+  const { setSubmit,output,submit } = useContext( NoteContext );
   return (
     <div>
         {submit === true ? <Runner /> : null}
-        <Navbar />
+        {/* {submit === true ? console.log("check") : console.log("nullnull")} */}
+        <Navbar /> 
         <CodeEditor />
         <div className="float">
           <InputEditor />
           <OutputEditor />
         </div>
-        <Runner />
     </div>
   );
 }
