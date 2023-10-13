@@ -3,16 +3,19 @@ import { useContext } from "react";
 import NoteContext from "../context/NoteContext";
 
 function CodeEditor() {
-  const { code, setCode,selectedLanguage} = useContext( NoteContext );
+  const { code, setCode, selectedLanguage, fontSize } = useContext(NoteContext);
   return (
     <div className="CodeEditor">
       <Editor
         height="90vh"
         theme="vs-dark"
         defaultLanguage={selectedLanguage.languageEditor}
-        // defaultValue="some comments"
+        language={selectedLanguage.languageEditor}
         value={code}
         onChange={(e) => setCode(e)}
+        options={{
+          fontSize: fontSize,
+        }}
       />
     </div>
   );
