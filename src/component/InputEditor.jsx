@@ -19,7 +19,6 @@ function CodeEditor() {
         value={input}
         onChange={handleInput}
       />
-      ;
     </div>
   );
 }

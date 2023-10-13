@@ -86,7 +86,7 @@ function NavScrollExample() {
                 {selectedLanguage.languageName}
               </Dropdown.Toggle>
 
-              <Dropdown.Menu>
+              <Dropdown.Menu className="languages">
                 {language.map((lang) => (
                   <Dropdown.Item
                     key={lang.id}
@@ -98,15 +98,9 @@ function NavScrollExample() {
               </Dropdown.Menu>
             </Dropdown>
           </Nav>
-          {/* <div style={{ textAlign: "center", paddingRight: "5%" }}>
-            <Button variant="outline-success" onClick={handleSubmit}>
-              Compile
-            </Button>
-          </div> */}
           <Form
             className="d-flex"
             style={{ marginRight: "2%" }}
-            // style={{ textAlign: "center", paddingRight: "5%" }}
           >
             <Button variant="outline-success" onClick={handleSubmit}>
               Compile

@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import NoteContext from "../context/NoteContext";
 function Runner() {
   const API_KEY = import.meta.env.VITE_API_KEY;
-  const { setOutput, setSubmit ,selectedLanguage, code, input } =
+  const { setOutput, setSubmit, selectedLanguage, code, input } =
     useContext(NoteContext);
   const [outputDetails, setOutputDetails] = useState("");
   const handleCompile = () => {
@@ -22,8 +22,7 @@ function Runner() {
       },
       data: {
         language_id: selectedLanguage.languageId,
-        source_code:
-          btoa(code),
+        source_code: btoa(code),
         stdin: btoa(input),
       },
     };
@@ -32,15 +31,15 @@ function Runner() {
       .request(options)
       .then(function (response) {
         // console.log(options)
-        console.log("api called1")
-        console.log(response)
+        console.log("api called1");
+        console.log(response);
         const token = response.data.token;
         setTimeout(() => {
           checkStatus(token);
         }, 2000);
       })
       .catch((err) => {
-        console.log(options)
+        console.log(options);
 
         let error = err.response ? err.response.data : err;
 
@@ -71,9 +70,9 @@ function Runner() {
       const response = await axios.request(options);
       console.log("api called2");
       console.log(response);
-  
+
       const statusId = response.data.status?.id;
-  
+
       if (statusId === 1 || statusId === 2) {
         setTimeout(() => {
           checkStatus(token);
@@ -100,11 +99,11 @@ function Runner() {
   };
   useEffect(() => {
     if (outputDetails !== "") {
-      console.log("outputDetails1",outputDetails)
+      console.log("outputDetails1", outputDetails);
       getOutput();
-      setSubmit(false)
+      setSubmit(false);
     } else {
-      console.log("outputDetails2",outputDetails)
+      console.log("outputDetails2", outputDetails);
       handleCompile();
     }
   }, [outputDetails]);

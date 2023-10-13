@@ -8,7 +8,6 @@ function CodeEditor() {
   const editorOptions = {
     readOnly: true,
   };
-
   return (
     <div className="OutputEditor">
       <div style={{ textAlign: "center" }}>
