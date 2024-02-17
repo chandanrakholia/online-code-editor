@@ -11,6 +11,7 @@ function CodeEditor() {
         theme="vs-dark"
         defaultLanguage={selectedLanguage.languageEditor}
         language={selectedLanguage.languageEditor}
+        defaultValue={selectedLanguage.boilerPlateCode}
         value={code}
         onChange={(e) => setCode(e)}
         options={{

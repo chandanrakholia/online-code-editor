@@ -2,16 +2,6 @@ import { useState } from "react";
 import NoteContext from "./NoteContext";
 import PropTypes from "prop-types";
 const NoteState = ({ children }) => {
-  const [code, setCode] = useState("");
-  const [selectedLanguage, setSelectedLanguage] = useState({
-    languageId: "71",
-    languageName: "Python (3.8.1)",
-    languageEditor: "python",
-  });
-  const [submit, setSubmit] = useState(false);
-  const [output, setOutput] = useState("");
-  const [input, setInput] = useState("");
-  const [fontSize, setFontSize] = useState(12);
   const language = [
     {
       id: 45,
@@ -32,41 +22,61 @@ const NoteState = ({ children }) => {
       id: 75,
       name: "C (Clang 7.0.1)",
       editorLanguage: "c",
+      boilerPlateCode:
+      `#include <stdio.h>\n\n\tint main(){\n\t\tprintf("Welcome to CR editor");\n\t\treturn 0;\n}`
+
     },
     {
       id: 76,
       name: "C++ (Clang 7.0.1)",
       editorLanguage: "c++",
+      boilerPlateCode:
+        `#include <iostream>\nusing namespace std;\n\n\tint main(){\n\t\tstd::cout << "Hello World!";\n\t\treturn 0;\n}`
     },
     {
       id: 48,
       name: "C (GCC 7.4.0)",
       editorLanguage: "c",
+      boilerPlateCode:
+      `#include <stdio.h>\n\n\tint main(){\n\t\tprintf("Welcome to CR editor");\n\t\treturn 0;\n}`
     },
     {
       id: 52,
       name: "C++ (GCC 7.4.0)",
       editorLanguage: "c++",
+      boilerPlateCode:         
+      `#include <iostream>\nusing namespace std;\n\n\tint main(){\n\t\tstd::cout << "Hello World!";\n\t\treturn 0;\n}`
+
     },
     {
       id: 49,
       name: "C (GCC 8.3.0)",
       editorLanguage: "c",
+      boilerPlateCode:
+      `#include <stdio.h>\n\n\tint main(){\n\t\tprintf("Welcome to CR editor");\n\t\treturn 0;\n}`
     },
     {
       id: 53,
       name: "C++ (GCC 8.3.0)",
       editorLanguage: "c++",
+      boilerPlateCode:
+      `#include <iostream>\nusing namespace std;\n\n\tint main(){\n\t\tstd::cout << "Hello World!";\n\t\treturn 0;\n}`
+
     },
     {
       id: 50,
       name: "C (GCC 9.2.0)",
       editorLanguage: "c",
+      boilerPlateCode:
+      `#include <stdio.h>\n\n\tint main(){\n\t\tprintf("Welcome to CR editor");\n\t\treturn 0;\n}`
     },
     {
       id: 54,
       name: "C++ (GCC 9.2.0)",
       editorLanguage: "c++",
+      boilerPlateCode:
+      `#include <iostream>\nusing namespace std;\n\n\tint main(){\n\t\tstd::cout << "Hello World!";\n\t\treturn 0;\n}`
+
     },
     {
       id: 86,
@@ -232,6 +242,7 @@ const NoteState = ({ children }) => {
       id: 71,
       name: "Python (3.8.1)",
       editorLanguage: "python",
+      boilerPlateCode: 'print("Hello, World!")',
     },
     {
       id: 80,
@@ -279,6 +290,20 @@ const NoteState = ({ children }) => {
       editorLanguage: "typeScript",
     },
   ];
+  const [code, setCode] = useState(language[43].boilerPlateCode);
+  // const [selectedLanguage, setSelectedLanguage] = useState(language[43]);
+  const [selectedLanguage, setSelectedLanguage] = useState({
+    languageId: language[43].id,
+    languageName: language[43].name,
+    languageEditor: language[43].editorLanguage,
+    boilerPlateCode: language[43].boilerPlateCode
+  });
+  const [submit, setSubmit] = useState(false);
+  const [home, setHome] = useState(true);
+  const [output, setOutput] = useState("");
+  const [input, setInput] = useState("");
+  const [fontSize, setFontSize] = useState(18);
+  const [theme, setTheme] = useState("light");
   return (
     <NoteContext.Provider
       value={{
@@ -295,6 +320,10 @@ const NoteState = ({ children }) => {
         setInput,
         fontSize,
         setFontSize,
+        home,
+        setHome,
+        theme,
+        setTheme
       }}
     >
       {children}

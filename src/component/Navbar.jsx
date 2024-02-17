@@ -15,6 +15,7 @@ function NavScrollExample() {
     setSelectedLanguage,
     fontSize,
     setFontSize,
+    setCode
   } = useContext(NoteContext);
 
   const handleSubmit = () => {
@@ -22,10 +23,12 @@ function NavScrollExample() {
   };
   const handleLanguageSelect = (selectedLanguage) => {
     console.log(selectedLanguage);
+    setCode(selectedLanguage.boilerPlateCode)
     setSelectedLanguage({
       languageId: selectedLanguage.id,
       languageName: selectedLanguage.name,
       languageEditor: selectedLanguage.editorLanguage,
+      boilerPlateCode: selectedLanguage.boilerPlateCode
     });
   };
   const handleFont = (font) => {
@@ -35,7 +38,7 @@ function NavScrollExample() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">CR EDITOR</Navbar.Brand>
+        <Navbar.Brand href="./">CR EDITOR</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -43,7 +46,7 @@ function NavScrollExample() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
+            {/* <Nav.Link href="#action1">Home</Nav.Link> */}
             <Dropdown style={{ marginRight: "2%" }}>
               <Dropdown.Toggle id="dropdown-basic">
                 <svg
@@ -106,9 +109,9 @@ function NavScrollExample() {
               Compile
             </Button>
           </Form>
-          <Form className="d-flex">
+          {/* <Form className="d-flex">
             <Button variant="outline-danger">Log out</Button>
-          </Form>
+          </Form> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -4,12 +4,12 @@ The Online Code Editor is a web-based code editor that allows users to write, ed
 
 ## Features
 
-- Supports multiple programming languages (e.g., JavaScript, Python, HTML, CSS).
+- Supports multiple programming languages (e.g., C++, JavaScript, Python, HTML, CSS).
 - Real-time code highlighting and autocompletion.
 
-## Demo
+## Website
 
-You can try out the Online Code Editor at [Demo Link](https://chandanrakholia.github.io/online-code-editor/).
+You can try out the Online Code Editor at [https://chandanrakholia.github.io/online-code-editor/](https://chandanrakholia.github.io/online-code-editor/).
 
 ## Getting Started
 
