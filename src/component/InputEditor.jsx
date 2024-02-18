@@ -3,7 +3,7 @@ import { useContext } from "react";
 import NoteContext from "../context/NoteContext";
 
 function CodeEditor() {
-  const { input, setInput } = useContext(NoteContext);
+  const { input, setInput, fontSize } = useContext(NoteContext);
   const handleInput = (e) => {
     setInput(e);
   };

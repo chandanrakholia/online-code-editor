@@ -3,7 +3,7 @@ import { useContext } from "react";
 import NoteContext from "../context/NoteContext";
 
 function CodeEditor() {
-  const { output } = useContext(NoteContext);
+  const { output, fontSize } = useContext(NoteContext);
 
   const editorOptions = {
     readOnly: true,
