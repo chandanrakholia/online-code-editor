@@ -1,26 +1,22 @@
 :root {
-    --gradient1: linear-gradient(
-        49deg,
-        #fef4ff,
-        #e5ecee,
-        #e5ecee,
-        #c3ddf3,
-        #acc7f6,
-        #a1b9f9,
-        #d6c3ec,
-        #e1dffc,
-        #dadbfc,
-        #caccf4,
-        #cdacde
-    );
-    --gradient2: linear-gradient(
-        119deg,
-        cyan,
-        #52ab93,
-        #d3a450,
-        #a15090,
-        #c6388e
-    );
+    --gradient1: linear-gradient(49deg,
+            #fef4ff,
+            #e5ecee,
+            #e5ecee,
+            #c3ddf3,
+            #acc7f6,
+            #a1b9f9,
+            #d6c3ec,
+            #e1dffc,
+            #dadbfc,
+            #caccf4,
+            #cdacde);
+    --gradient2: linear-gradient(119deg,
+            cyan,
+            #52ab93,
+            #d3a450,
+            #a15090,
+            #c6388e);
     --gradient3: linear-gradient(49deg, #ab4da3, #52ab93, #d3a450);
     --gradient4: linear-gradient(119deg, #52ab93, #d3a450, #a15090);
     --app-header-gradient: linear-gradient(45deg, #fcea41, #f048c6);
@@ -40,6 +36,7 @@
     0% {
         background-position: left;
     }
+
     100% {
         background-position: right;
     }
@@ -108,9 +105,9 @@
 }
 
 .app-name-dark {
-    background-image: var(--gradient1);
+    /* background-image: var(--gradient1); */
     background-clip: text;
-    color: transparent;
+    /* color: transparent; */
     background-size: 200%;
     animation: bg-animation 4s infinite alternate;
     display: inline;
@@ -118,12 +115,16 @@
     font-weight: bold;
     margin-top: 0px;
     margin-left: 2%;
+    color: white;
+    font-family: "Oleo Script", system-ui;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .app-name-light {
-    background-image: var(--gradient2);
+    /* background-image: var(--gradient2); */
     background-clip: text;
-    color: transparent;
+    /* color: transparent; */
     background-size: 200%;
     animation: bg-animation 5s infinite alternate;
     display: inline;
@@ -131,12 +132,17 @@
     font-weight: bold;
     margin-top: 0px;
     margin-left: 2%;
+    color: black;
+    font-family: "Oleo Script", system-ui;
+    font-weight: 700;
+    font-style: normal;
 }
 
 select {
     font-weight: 600;
     font-size: 15px;
-    background-color: var(--sky);
+    /* background-color: var(--sky); */
+    background-color: orange;
     border: none;
     color: black;
     padding: 5px 10px;
@@ -145,12 +151,13 @@ select {
     display: inline-block;
     margin: 2px 1px;
     cursor: pointer;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 .secondary-nav-items {
-    display: table;
-    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2%;
     margin-bottom: 2vh;
 }
 
@@ -166,13 +173,14 @@ select {
         display: block;
         text-align: left;
     }
+
     .header-right {
         float: none;
     }
 }
 
 .btn {
-    font-weight: 600;
+    /* font-weight: 600; */
     font-size: 15px;
     border: none;
     /* color: var(--light-yellow); */
@@ -182,7 +190,7 @@ select {
     display: inline-block;
     margin: 2px 10px;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 1020px;
     overflow: hidden;
 }
 
@@ -204,21 +212,25 @@ select {
     background-color: var(--yellowish);
     color: black;
 }
+
 .run-btn {
-    background-color: var(--yellowish);
-    color: black;
+    background-color: #439D44;
     margin-left: 10px;
-
+    color: white;
 }
+
 .run-btn:hover {
-    background-color: var(--coral);
-    color: black;
+    /* background-color: var(--coral);
+    color: black; */
+    background-color: #317821;
+    color: white;
 }
 
-.run-btn:hover .run-icon {
+/* .run-btn:hover .run-icon {
     background-color: var(--coral);
     color: black;
-}
+} */
+
 .nav-icons {
     display: inline;
     margin-right: 3vw;
@@ -230,9 +242,11 @@ select {
 .tutorial-btn-dark {
     background-color: var(--visual-studio-dark);
 }
+
 .tutorial-btn-light {
     background-color: var(--visual-studio-light);
 }
+
 .tutorial-icon {
     background-image: var(--gradient2);
     background-clip: text;
@@ -240,9 +254,11 @@ select {
     background-size: 200%;
     animation: bg-animation 3s infinite alternate;
 }
+
 .tutorial-icon:hover {
     color: #c6388e;
 }
+
 /* Tutorial Icon styling ends */
 
 /* Theme Icon styling begins */
@@ -250,16 +266,19 @@ select {
     color: #fff;
     filter: drop-shadow(0 0 5px lime);
 }
+
 .theme-icon-light:hover {
     color: var(--light-yellow);
 }
+
 .theme-icon-dark {
     color: rgb(61, 61, 61);
     filter: drop-shadow(0 0 5px black);
 }
-.theme-icon-dark:hover {
+
+/* .theme-icon-dark:hover {
     color: var(--darkish);
-}
+} */
 
 .image {
     width: 35px;
@@ -283,12 +302,13 @@ option {
     font-weight: 500;
     border-radius: 8px;
 }
-.theme-btn:hover {
-    background-color: skyblue;
-    color: black;
-}
 
-.theme-btn:hover .run-icon {
+/* .theme-btn:hover {
     background-color: skyblue;
     color: black;
-}
+} */
+
+/* .theme-btn:hover .run-icon {
+    background-color: skyblue;
+    color: black;
+} */

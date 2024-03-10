@@ -1,35 +1,44 @@
-body{
+body {
   background-color: black;
 }
+
 .CodeEditor {
   width: 70%;
   float: left;
 }
+
 .InputEditor {
   padding-left: 5px;
 }
+
 .OutputEditor {
   padding-left: 5px;
 }
+
 .float {
   float: left;
   width: 30%;
 }
+
 .languages {
   height: 50vh;
   overflow-y: scroll;
 }
+
 .Nav.Link {
   padding-right: 2%;
 }
+
 .home-image {
   height: 100vh;
   width: 80%;
 }
-.home{
+
+.home {
   /* display: flex;
   align-items: horizontal */
 }
+
 .float-container {
   /* border: 3px solid #fff; */
   /* padding: 20px; */
@@ -40,13 +49,15 @@ body{
   width: 70%;
   float: left;
   align-items: center;
-}  
+}
+
 .float-child2 {
   width: 30%;
   display: grid;
   place-items: center;
-} 
-.get-started{
+}
+
+.get-started {
   text-align: center;
   margin-top: 45vh;
-} 
+}

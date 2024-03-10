@@ -1,22 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./component/Navbar";
-import CodeEditor from "./component/CodeEditor";
-import InputEditor from "./component/InputEditor";
-import OutputEditor from "./component/OutputEditor";
-import Runner from "./component/Runner";
-import { useContext, useState, useEffect } from "react";
-import NoteContext from "./context/NoteContext";
-import Home from "./component/Home"
+import {useState, useEffect} from "react";
 import "./style.css";
-import { NavbarBrand } from "react-bootstrap";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Editor } from "@monaco-editor/react";
 import "./App.css"
 import axios from "axios";
-import { CiStar } from "react-icons/ci";
-import { FaCode } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
-import { RiCodeSLine } from "react-icons/ri";
+import { FaRegPlayCircle } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const editorOptions = {
   scrollBeyondLastLine: false,
   fontSize: "16px",
@@ -69,7 +61,7 @@ function App() {
       name: "C++ (Clang 7.0.1)",
       editorLanguage: "c++",
       boilerPlateCode:
-        `#include <iostream>\nusing namespace std;\n\n\tint main(){\n\t\tstd::cout << "Hello World!";\n\t\treturn 0;\n}`
+        `#include <iostream>\nusing namespace std;\n\n\tint main(){\n\t\tcout << "Hello World!";\n\t\treturn 0;\n}`
     },
     {
       id: 48,
@@ -83,7 +75,7 @@ function App() {
       name: "C++ (GCC 7.4.0)",
       editorLanguage: "c++",
       boilerPlateCode:
-        `#include <iostream>\nusing namespace std;\n\n\tint main(){\n\t\tstd::cout << "Hello World!";\n\t\treturn 0;\n}`
+        `#include <iostream>\nusing namespace std;\n\n\tint main(){\n\t\tcout << "Hello World!";\n\t\treturn 0;\n}`
 
     },
     {
@@ -98,7 +90,7 @@ function App() {
       name: "C++ (GCC 8.3.0)",
       editorLanguage: "c++",
       boilerPlateCode:
-        `#include <iostream>\nusing namespace std;\n\n\tint main(){\n\t\tstd::cout << "Hello World!";\n\t\treturn 0;\n}`
+        `#include <iostream>\nusing namespace std;\n\n\tint main(){\n\t\tcout << "Hello World!";\n\t\treturn 0;\n}`
 
     },
     {
@@ -113,7 +105,7 @@ function App() {
       name: "C++ (GCC 9.2.0)",
       editorLanguage: "c++",
       boilerPlateCode:
-        `#include <iostream>\nusing namespace std;\n\n\tint main(){\n\t\tstd::cout << "Hello World!";\n\t\treturn 0;\n}`
+        `#include <iostream>\nusing namespace std;\n\n\tint main(){\n\t\tcout << "Hello World!";\n\t\treturn 0;\n}`
 
     },
     {
@@ -328,13 +320,12 @@ function App() {
       name: "TypeScript (5.0.3)",
       editorLanguage: "typeScript",
     },
-    {
-      id: 84,
-      name: "Visual Basic.Net (vbnc 0.0.0.5943)",
-      editorLanguage: "typeScript",
-    },
+    // {
+    //   id: 84,
+    //   name: "Visual Basic.Net (vbnc 0.0.0.5943)",
+    //   editorLanguage: "typeScript",
+    // },
   ];
-  // const { setSubmit, output, submit, home ,selectedLanguage,code,input} = useContext(NoteContext);
   const [selectedLanguage, setSelectedLanguage] = useState({
     languageId: language[43].id,
     languageName: language[43].name,
@@ -346,12 +337,13 @@ function App() {
   const [output, setOutput] = useState("");
   const [editorMode, setEditorMode] = useState("vs-dark");
   const [outputDetails, setOutputDetails] = useState("");
+  const [processing, setProcessing] = useState(null);
   const [submit, setSubmit] = useState(false);
 
   const toggleTheme = (idName) => {
     let currentClassName = document.getElementById(idName).className;
     let newClassName = currentClassName;
-    if (currentClassName === idName + "-dark")
+    if (currentClassName == idName + "-dark")
       newClassName = idName + "-light";
     else newClassName = idName + "-dark";
     document.getElementById(idName).className = newClassName;
@@ -386,6 +378,7 @@ function App() {
   };
   const API_KEY = import.meta.env.VITE_API_KEY;
   const handleCompile = async () => {
+    setProcessing(true);
     const options = {
       method: "POST",
       url: "https://judge0-ce.p.rapidapi.com/submissions",
@@ -426,8 +419,13 @@ function App() {
         console.log("status", status);
         if (status === 429) {
           console.log("too many requests", status);
+          showErrorToast(
+            `Quota of 100 requests exceeded for the Day!`,
+            10000
+          );
         }
         console.log("catch block...", error);
+        setProcessing(false);
         setOutput(err.message);
       });
   };
@@ -457,10 +455,16 @@ function App() {
           checkStatus(token);
         }, 3000);
       } else {
+        setProcessing(false);
         setOutputDetails(response.data);
+        showSuccessToast(`Compiled Successfully!`);
+
       }
     } catch (err) {
       console.log("err", err);
+      setProcessing(false);
+      showErrorToast();
+
     }
   };
   const getOutput = () => {
@@ -498,17 +502,42 @@ function App() {
       }
     }
   }, [submit]);
+  const showSuccessToast = (msg) => {
+    toast.success(msg || `Compiled Successfully!`, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+  const showErrorToast = (msg, timer) => {
+    toast.error(msg || `Something went wrong! Please try again.`, {
+      position: "top-right",
+      autoClose: timer ? timer : 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
   return (
-    // <div>
-    //   { submit==true? <Runner/> : null}
-    //   <Navbar />
-    //   <CodeEditor />
-    //   <div className="float">
-    //     <InputEditor />
-    //     <OutputEditor />
-    //   </div>
-    // </div>
     <div id="App" className="App-dark">
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+
       <div id="header" className="header-dark">
         <h3 id="app-name" className="app-name-dark">
           <i className="fas fa-solid fa-cube" aria-hidden="true"></i>
@@ -517,15 +546,6 @@ function App() {
 
         <div className="nav-right-options">
           <button className=" btn run-btn theme-btn" onClick={handleThemeChange}>
-            {/* <i
-              id="theme-icon"
-              className="fas fa-solid fa-sun fa-2x nav-icons theme-icon-light"
-              aria-hidden="true"
-            ></i> */}
-            {/* <i
-              className="fas fa-solid fa-swatchbook tutorial-icon nav-icons fa-2x"
-              aria-hidden="true"
-            ></i> */}
             <FaStar />
             &nbsp; Theme
           </button>
@@ -533,13 +553,15 @@ function App() {
       </div>
 
       <div className="secondary-nav-items">
-        <button className="btn logo-btn" disabled={true}>
-          {/* <img
-            src={require(`${languageIcon}`)}
-            className="image"
-            alt={`${language} icon`}
-          /> */}
+        <button className="btn run-btn" onClick={handleCompile}>
+          <i
+            className="fas fa-play fa-fade run-icon"
+            aria-hidden="true"
+          ></i>
+          <FaRegPlayCircle />
+          &nbsp; {processing ? "Processing..." : "Run Code"}
         </button>
+
         <button id="language-button" className="language-button-dark">
           <select defaultValue={43} onChange={(e) => handleLanguageSelect(language[e.target.value])}>
             {language.map((lang, index) => (
@@ -547,18 +569,7 @@ function App() {
                 {lang.name}
               </option>
             ))}
-            
           </select>
-         
-        </button>
-        {/* run button */}
-        <button className="btn run-btn" onClick={() => setSubmit(true)}>
-          <i
-            className="fas fa-play fa-fade run-icon"
-            aria-hidden="true"
-          ></i>
-          <FaCode />
-          &nbsp; Run
         </button>
       </div>
 
