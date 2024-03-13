@@ -1,6 +1,4 @@
-Certainly! If your Online Code Editor includes collaborative features, you can update the README file to reflect that. Here's an example:
 
-```markdown
 # Online Code Editor
 
 The Online Code Editor is a feature-rich web-based development environment that allows users to write, edit, and execute code in various programming languages directly in their web browser. It is a versatile tool suitable for developers, educators, and learners.
@@ -13,7 +11,7 @@ The Online Code Editor is a feature-rich web-based development environment that 
 
 ## Demo
 
-Visit the Online Code Editor at [https://your-online-code-editor-url.com/](https://your-online-code-editor-url.com/).
+Visit the Online Code Editor at [chandanrakholia.github.io/online-code-editor/](chandanrakholia.github.io/online-code-editor/).
 
 ## Getting Started
 
@@ -54,11 +52,17 @@ Make sure you have the following software installed on your system:
     npm run dev
     ```
 
-   This will launch the Online Code Editor locally, and it should be accessible at `http://localhost:5173/`.
+   This will launch the Online Code Editor locally, and it should be accessible at `http://localhost:5173/online-code-editor/`.
 
-2. Open your web browser and navigate to the above URL to access the Online Code Editor.
+2. Run backend server :
 
-3. To collaborate with others, share the provided link with them, and you can code together in real-time.
+    ```bash
+    nodemon server.js
+    ```
+
+3. Open your web browser and navigate to the above URL to access the Online Code Editor.
+
+4. To collaborate with others, share the provided link with them, and you can code together in real-time.
 
 
 ## Acknowledgments
