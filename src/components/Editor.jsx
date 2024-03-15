@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/dracula.css';
-import 'codemirror/theme/night.css'
+import 'codemirror/theme/night.css';
 import 'codemirror/mode/javascript/javascript.js';
 import 'codemirror/addon/edit/closetag';
 import 'codemirror/addon/edit/closebrackets';

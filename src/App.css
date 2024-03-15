@@ -70,7 +70,7 @@
 
 .std-input-output {
     overflow: hidden;
-    background-color: var(--bluish);
+    /* background-color: var(--bluish); */
     display: inline-block;
     position: absolute;
     text-align: initial;
@@ -303,12 +303,50 @@ option {
     border-radius: 8px;
 }
 
-/* .theme-btn:hover {
-    background-color: skyblue;
-    color: black;
-} */
+.CodeMirror {
+    min-height: calc(100vh - 140.991px);
+    font-size: 16px;
+    line-height: 1.6;
+    /* padding-top: 20px; */
+}
 
-/* .theme-btn:hover .run-icon {
-    background-color: skyblue;
+.std-input-output {
+    min-height: calc(100vh - 146.991px);
+    /* background-color: var(--visual-studio-dark); */
+}
+
+.std-input,
+.std-output {
+    text-align: center;
+    margin-top: 20px;
+}
+
+textarea {
+    /* text-align: center; */
+    width: 50%;
+    height: calc((100vh - 146.991px)/3);
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden
+}
+
+.vs-dark {
+    color: white;
+}
+
+.vs-light {
     color: black;
+}
+
+/* .userName{
+    color: white;
 } */

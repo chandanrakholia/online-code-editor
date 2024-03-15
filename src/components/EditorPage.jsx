@@ -137,6 +137,7 @@ function App() {
     toggleTheme("header");
     toggleTheme("app-name");
     toggleTheme("language-button");
+    toggleTheme("userName")
     const themeToggler = document.getElementById("theme-icon");
     let classNames = themeToggler.classList;
     if (classNames.contains("theme-icon-light")) {
@@ -352,10 +353,10 @@ function App() {
           </button>
         </div>
       </div>
-      <div style={{ display: "flex", gap: "20px" }}>
+      <div style={{ display: "flex", gap: "20px", marginLeft: "20px" }}>
         {clients.map((client) => {
           console.log(client.userName);
-          return <Client key={client.socketId} username={client.username}></Client>;
+          return <Client key={client.socketId} username={client.username} editorMode={editorMode}></Client>;
         })}
       </div>
       <div className="secondary-nav-items">
@@ -413,7 +414,7 @@ function App() {
             onChange={(e) => setInput(e)}
           /> */}
           {/* <EditorInput/> */}
-          <textarea placeholder="enter input here" onChange={(e)=>setInput(e.target.value)}></textarea>
+          <textarea placeholder="enter input here" onChange={(e) => setInput(e.target.value)}></textarea>
         </div>
         <div className="std-output">
           {/* <Editor
