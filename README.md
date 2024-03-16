@@ -11,7 +11,7 @@ The Online Code Editor is a feature-rich web-based development environment that 
 
 ## Demo
 
-Visit the Online Code Editor at [chandanrakholia.github.io/online-code-editor/](chandanrakholia.github.io/online-code-editor/).
+Visit the Online Code Editor at [chandanrakholia.github.io/online-code-editor/](https://chandanrakholia.github.io/online-code-editor/).
 
 ## Getting Started
 
