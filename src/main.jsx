@@ -14,7 +14,7 @@ import Layout from './components/Layout.jsx';
 import LoginPage from "./components/LoginPage.jsx"
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/online-code-editor/' element={<Layout />}>
+    <Route path='/' element={<Layout />}>
       <Route path='' element={<LoginPage />} />
       <Route path='editor/:roomId' element={<Editor />} />
     </Route>

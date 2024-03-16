@@ -140,7 +140,7 @@ function App() {
     }
   };
   const handleLanguageSelect = (selectedLanguage) => {
-    console.log(selectedLanguage);
+    // console.log(selectedLanguage);
     setCode(selectedLanguage.boilerPlateCode)
     setSelectedLanguage({
       languageId: selectedLanguage.id,
@@ -152,8 +152,8 @@ function App() {
   const API_KEY = import.meta.env.VITE_API_KEY;
   const handleCompile = async () => {
     setProcessing(true);
-    console.log(codeRef.current)
-    console.log(input)
+    // console.log(codeRef.current)
+    // console.log(input)
     const options = {
       method: "POST",
       url: "https://judge0-ce.p.rapidapi.com/submissions",
@@ -387,36 +387,16 @@ function App() {
           socketRef={socketRef}
           roomId={roomId}
           onCodeChange={(code) => {
-            console.log(code)
+            // console.log(code)
             codeRef.current = code;
           }}
         />
       </div>
       <div className="std-input-output">
         <div className="std-input">
-          {/* <Editor
-            height="100%"
-            width="100%"
-            theme={editorMode}
-            defaultLanguage="plaintext"
-            defaultValue={"// enter input here"}
-            value={input}
-            options={inputOptions}
-            onChange={(e) => setInput(e)}
-          /> */}
-          {/* <EditorInput/> */}
           <textarea placeholder="enter input here" onChange={(e) => setInput(e.target.value)}></textarea>
         </div>
         <div className="std-output">
-          {/* <Editor
-            height="100%"
-            width="100%"
-            theme={editorMode}
-            defaultLanguage="plaintext"
-            defaultValue={"// output"}
-            value={output}
-            options={outputOptions}
-          /> */}
           <textarea placeholder="output" value={output}></textarea>
         </div>
       </div>

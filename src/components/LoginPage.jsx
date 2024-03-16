@@ -50,7 +50,7 @@ const page = () => {
       return;
     }
     console.log(userName)
-    navigate(`/online-code-editor/editor/${roomId}`, {
+    navigate(`/editor/${roomId}`, {
       state: {
         username:userName,
       }

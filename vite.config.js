@@ -6,6 +6,9 @@ import macrosPlugin from "vite-plugin-babel-macros";
 //   plugins: [react()],
 // })
 export default defineConfig({
-  base: "/online-code-editor/", // add the base as repo name as "/yourRepoName/"
+  // base: "/online-code-editor/", // add the base as repo name as "/yourRepoName/"
   plugins: [react(), macrosPlugin()],
+  build: {
+    chunkSizeWarningLimit: 1600,
+  },
 });

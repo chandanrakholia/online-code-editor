@@ -5,6 +5,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "npm build && npm server:prod",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
