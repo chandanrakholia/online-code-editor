@@ -5,7 +5,7 @@ The Online Code Editor is a feature-rich web-based development environment that 
 
 ## Features
 
-- **Language Support:** The editor supports multiple programming languages, including C++, JavaScript, Python, HTML, and CSS.
+- **Language Support:** The editor supports 40+ programming languages, including C++, JavaScript, Python, Java,Swift,Ruby,Kotlin etc.
 - **Real-time Code Highlighting and Autocompletion:** Enhances the coding experience with real-time syntax highlighting and autocompletion features.
 - **Collaborative Editing:** Work on code collaboratively in real-time with other users.
 
@@ -64,6 +64,13 @@ Make sure you have the following software installed on your system:
 
 4. To collaborate with others, share the provided link with them, and you can code together in real-time.
 
+## Important
+
+to get things work you should create a .env file in the root of your project with the following parameters:
+
+VITE_API_KEY=your API key 
+
+VITE_BACKEND_URL="http://localhost:5000"
 
 ## Acknowledgments
 

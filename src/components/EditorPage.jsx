@@ -313,6 +313,14 @@ function App() {
       console.error(err);
     }
   }
+  function leaveRoom() {
+    reactNavigator('/');
+}
+
+if (!location.state) {
+    return <Navigate to="/" />;
+}
+
   return (
     <div id="App" className="App-dark">
       <ToastContainer
@@ -341,6 +349,9 @@ function App() {
           </button>
           <button className="btn run-btn theme-btn" onClick={copyRoomId}>
             Copy ROOM ID
+          </button>
+          <button className="leave-btn" onClick={leaveRoom}>
+            Leave
           </button>
         </div>
       </div>
@@ -371,18 +382,6 @@ function App() {
         </button>
       </div>
       <div className="editor" style={{ overflow: "hidden" }}>
-        {/* <Editor
-          height="100%"
-          width="100%"
-          theme={editorMode}
-          defaultLanguage={language}
-          // defaultValue={code}
-          // value={code}
-          onChange={handleCodeChange}
-          onMount={handleEditorDidMount}
-          options={editorOptions}
-          language={selectedLanguage.languageEditor}
-        /> */}
         <Editor
           socketRef={socketRef}
           roomId={roomId}

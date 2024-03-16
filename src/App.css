@@ -186,6 +186,20 @@ select {
     background-color: #317821;
     color: white;
 }
+.leave-btn{
+    font-size: 15px;
+    border: none;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px 10px;
+    cursor: pointer;
+    border-radius: 1020px;
+    overflow: hidden;
+    background-color: red;
+    color: white;
+}
 
 .nav-icons {
     display: inline;
