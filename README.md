@@ -11,7 +11,7 @@ The Online Code Editor is a feature-rich web-based development environment that 
 
 ## Demo
 
-Visit the Online Code Editor at [chandanrakholia.github.io/online-code-editor/](https://online-code-editor-d5on.onrender.com).
+Visit the Online Code Editor at [https://online-code-editor-d5on.onrender.com](https://online-code-editor-d5on.onrender.com).
 
 ## Getting Started
 
