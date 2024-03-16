@@ -1,7 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useEffect, useRef } from "react";
-import "../style.css";
-// import { Editor } from "@monaco-editor/react";
 import "../App.css"
 import axios from "axios";
 import { FaStar } from "react-icons/fa";
@@ -17,9 +15,7 @@ import {
   Navigate,
   useParams,
 } from 'react-router-dom';
-import * as monaco from 'monaco-editor';
 import language from "./Languages"
-import MonacoEditor from '@monaco-editor/react';
 import Editor from '../components/Editor';
 import { Textarea } from "react-login-page";
 const editorOptions = {
@@ -113,11 +109,6 @@ function App() {
       );
     };
     init();
-    // return () => {
-    //   socketRef.current.disconnect();
-    //   socketRef.current.off(ACTIONS.JOINED);
-    //   socketRef.current.off(ACTIONS.DISCONNECTED);
-    // };
   }, []);
 
 

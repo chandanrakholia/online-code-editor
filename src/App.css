@@ -1,35 +1,7 @@
 :root {
-    --gradient1: linear-gradient(49deg,
-            #fef4ff,
-            #e5ecee,
-            #e5ecee,
-            #c3ddf3,
-            #acc7f6,
-            #a1b9f9,
-            #d6c3ec,
-            #e1dffc,
-            #dadbfc,
-            #caccf4,
-            #cdacde);
-    --gradient2: linear-gradient(119deg,
-            cyan,
-            #52ab93,
-            #d3a450,
-            #a15090,
-            #c6388e);
-    --gradient3: linear-gradient(49deg, #ab4da3, #52ab93, #d3a450);
-    --gradient4: linear-gradient(119deg, #52ab93, #d3a450, #a15090);
-    --app-header-gradient: linear-gradient(45deg, #fcea41, #f048c6);
-    --bluish: #3a4f7a;
-    --darkish: #2b3a55;
     --visual-studio-light: #ffffff;
     --visual-studio-dark: #1e1e1e;
-    --light-yellow: #f6f6c9;
     --yellowish: #ffbf00;
-    --sky: #52ab93;
-    --coral: #e56e67;
-    --light-pink: #fea1bf;
-    --light-green: #86c8bc;
 }
 
 @keyframes bg-animation {
@@ -70,7 +42,6 @@
 
 .std-input-output {
     overflow: hidden;
-    /* background-color: var(--bluish); */
     display: inline-block;
     position: absolute;
     text-align: initial;
@@ -105,9 +76,7 @@
 }
 
 .app-name-dark {
-    /* background-image: var(--gradient1); */
     background-clip: text;
-    /* color: transparent; */
     background-size: 200%;
     animation: bg-animation 4s infinite alternate;
     display: inline;
@@ -122,9 +91,7 @@
 }
 
 .app-name-light {
-    /* background-image: var(--gradient2); */
     background-clip: text;
-    /* color: transparent; */
     background-size: 200%;
     animation: bg-animation 5s infinite alternate;
     display: inline;
@@ -141,7 +108,6 @@
 select {
     font-weight: 600;
     font-size: 15px;
-    /* background-color: var(--sky); */
     background-color: orange;
     border: none;
     color: black;
@@ -151,7 +117,6 @@ select {
     display: inline-block;
     margin: 2px 1px;
     cursor: pointer;
-    /* border-radius: 10px; */
 }
 
 .secondary-nav-items {
@@ -180,10 +145,8 @@ select {
 }
 
 .btn {
-    /* font-weight: 600; */
     font-size: 15px;
     border: none;
-    /* color: var(--light-yellow); */
     padding: 5px 20px;
     text-align: center;
     text-decoration: none;
@@ -220,16 +183,9 @@ select {
 }
 
 .run-btn:hover {
-    /* background-color: var(--coral);
-    color: black; */
     background-color: #317821;
     color: white;
 }
-
-/* .run-btn:hover .run-icon {
-    background-color: var(--coral);
-    color: black;
-} */
 
 .nav-icons {
     display: inline;
@@ -237,29 +193,6 @@ select {
     margin-top: 0.8vh;
     cursor: pointer;
 }
-
-/* Tutorial Icon styling begins */
-.tutorial-btn-dark {
-    background-color: var(--visual-studio-dark);
-}
-
-.tutorial-btn-light {
-    background-color: var(--visual-studio-light);
-}
-
-.tutorial-icon {
-    background-image: var(--gradient2);
-    background-clip: text;
-    color: transparent;
-    background-size: 200%;
-    animation: bg-animation 3s infinite alternate;
-}
-
-.tutorial-icon:hover {
-    color: #c6388e;
-}
-
-/* Tutorial Icon styling ends */
 
 /* Theme Icon styling begins */
 .theme-icon-light {
@@ -275,10 +208,6 @@ select {
     color: rgb(61, 61, 61);
     filter: drop-shadow(0 0 5px black);
 }
-
-/* .theme-icon-dark:hover {
-    color: var(--darkish);
-} */
 
 .image {
     width: 35px;
@@ -346,7 +275,3 @@ body {
 .vs-light {
     color: black;
 }
-
-/* .userName{
-    color: white;
-} */
